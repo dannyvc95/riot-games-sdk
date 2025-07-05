@@ -2,15 +2,18 @@ import dotenv from 'dotenv';
 dotenv.config();
 
 import {Account} from './resources/account';
+import {ChampionRotation} from './resources/championRotation';
 
 export class RiotGamesApiClient {
     public readonly account: Account;
+    public readonly championRotation: ChampionRotation;
 
     private readonly apiKey: string = process.env.RIOT_GAMES_API_KEY || '';
     private readonly baseUrl: string = process.env.RIOT_GAMES_API_HOST || '';
 
     constructor() {
         this.account = new Account(this);
+        this.championRotation = new ChampionRotation(this);
     }
 
     /**
