@@ -3,7 +3,7 @@ export interface PlayerDto {
    * Encrypted PUUID of the player.
    */
   puuid: string;
-  
+
   /**
    * Identifier of the team the player belongs to.
    */

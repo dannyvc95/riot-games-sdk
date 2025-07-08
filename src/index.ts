@@ -18,7 +18,7 @@ import {RiotGamesApiClient} from './client';
             const listPlayer = await client.clash.getPlayersByPuuid(account.puuid);
             console.log(listPlayer);
             const tournaments = await client.clash.getAllActiveOrUpcomingTournaments();
-            console.log(tournaments)
+            console.log(tournaments);
         }
     }
 
