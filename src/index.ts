@@ -14,6 +14,10 @@ import {RiotGamesApiClient} from './client';
         if (account.puuid) {
             const region = await client.account.getActiveRegionByPuuid(account.puuid);
             console.log(region);
+            const listPlayer = await client.clash.getPlayersByPuuid(account.puuid);
+            console.log(listPlayer);
+            const tournaments = await client.clash.getAllActiveOrUpcomingTournaments();
+            console.log(tournaments)
         }
     }
 })();
