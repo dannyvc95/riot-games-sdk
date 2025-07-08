@@ -1,8 +1,8 @@
 /** https://developer.riotgames.com/apis#clash-v1 */
-import { RiotGamesApiClient } from '../client';
-import { PlayerDto } from '../types/PLayerDto';
-import { TeamDto } from '../types/TeamDto';
-import { TournamentDto } from '../types/TournamentDto';
+import {RiotGamesApiClient} from '../client';
+import {PlayerDto} from '../types/PlayerDto';
+import {TeamDto} from '../types/TeamDto';
+import {TournamentDto} from '../types/TournamentDto';
 
 export class Clash {
     constructor(private client: RiotGamesApiClient) { }
@@ -30,7 +30,7 @@ export class Clash {
     /** /lol/clash/v1/tournaments */
     async getAllActiveOrUpcomingTournaments(): Promise<TournamentDto[] | null> {
         try {
-            return await this.client.getFromRegion('la1',`/lol/clash/v1/tournaments`);
+            return await this.client.getFromRegion('la1','/lol/clash/v1/tournaments');
         } catch (error) {
             console.error(error);
         }

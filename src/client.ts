@@ -1,13 +1,15 @@
 import dotenv from 'dotenv';
 dotenv.config();
 
-import { Account } from './resources/account';
-import { Clash } from './resources/clash';
+import {Account} from './resources/account';
+import {ChampionRotation} from './resources/championRotation';
+import {Clash} from './resources/clash';
 
 type RiotRegion = 'americas' | 'la1';
 
 export class RiotGamesApiClient {
     public readonly account: Account;
+    public readonly championRotation: ChampionRotation;
     public readonly clash: Clash;
 
     private readonly apiKey: string = process.env.RIOT_GAMES_API_KEY || '';
@@ -21,6 +23,7 @@ export class RiotGamesApiClient {
     constructor() {
         this.account = new Account(this);
         this.clash = new Clash(this);
+        this.championRotation = new ChampionRotation(this);
     }
 
     /**
@@ -34,7 +37,7 @@ export class RiotGamesApiClient {
     async getFromRegion<T = unknown>(region: RiotRegion, path: string): Promise<T> {
         const baseUrl = this.regionUrls[region];
         const response = await fetch(`${baseUrl}${path}`, {
-            headers: { 'X-Riot-Token': this.apiKey },
+            headers: {'X-Riot-Token': this.apiKey},
         });
         if (!response.ok) {
             throw new Error(`Request failed: ${response.status}`);
