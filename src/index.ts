@@ -19,6 +19,16 @@ import {RiotGamesApiClient} from './client';
             console.log(listPlayer);
             const tournaments = await client.clash.getAllActiveOrUpcomingTournaments();
             console.log(tournaments);
+
+            console.log('Champion Masteries By puuid: ');
+            const championMasteriesByPuuid = await client.championMastery.getChampionMasteriesByPuuid(account.puuid);
+            console.log(championMasteriesByPuuid);
+            console.log('Champion Masteries Top By puuid: ');
+            const championMasteriesTop = await client.championMastery.getChampionMasteriesTopByPuuid(account.puuid);
+            console.log(championMasteriesTop);
+            console.log('Champion Mastery Score By puuid: ');
+            const championMasteryScore = await client.championMastery.getChampionMasteryScoreByPuuid(account.puuid);
+            console.log(championMasteryScore);
         }
     }
 
