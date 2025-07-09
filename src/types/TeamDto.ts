@@ -1,4 +1,4 @@
-import { PlayerDto } from "./PLayerDto";
+import {PlayerDto} from './PlayerDto';
 
 export interface TeamDto {
   /**
