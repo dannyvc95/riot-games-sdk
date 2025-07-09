@@ -9,6 +9,7 @@ import {RiotGamesApiClient} from './client';
     const account = await client.account.getAccountByRiotId('NoxMajesty', 'LAN');
     const championRotation = await client.championRotation.getChampionRotations();
     const leagues = await client.leagueExp.getAllLeagueEntries('RANKED_SOLO_5x5', 'CHALLENGER','I',1);
+    const status = await client.lolStatus.getLOLStatus();
 
     if (account) {
         console.log(`riot id: ${gameName}#${tagLine}\npuuid: ${account.puuid}\n`);
@@ -53,5 +54,14 @@ import {RiotGamesApiClient} from './client';
     }
     if (leagues) {
         console.log(`Leagues:\nLeagueId: ${[...leagues][0].leagueId}`);
+    }
+
+    if(status) {
+        console.log('LOL Platform Status:');
+        console.log(`ID: ${status.id}`);
+        console.log(`Name: ${status.name}`);
+        console.log(`Locales: ${status.locales}`);
+        console.log(`Maintenances: ${status.maintenances}`);
+        console.log(`Incidents: ${status.incidents}`);
     }
 })();

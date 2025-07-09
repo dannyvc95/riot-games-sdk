@@ -17,3 +17,11 @@ export type Tier =
   | 'CHALLENGER';
 
 export type Division = 'I' | 'II' | 'III' | 'IV';
+
+export type Platforms = 'WINDOWS' | 'MACOS' | 'ANDROID' | 'IOS' | 'PS4' | 'XBONE' | 'SWITCH';
+
+export type PublishLocations = 'RIOTCLIENT' | 'RIOTSTATUS' | 'GAME';
+
+export type IncidentSeverity = 'INFO' | 'WARNING' | 'CRITICAL';
+
+export type MaintenanceStatus = 'SCHEDULED' | 'INPROGRESS' | 'COMPLETE';
