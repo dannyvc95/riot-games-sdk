@@ -44,6 +44,12 @@ import {RiotGamesApiClient} from './client';
             if(listOfFeaturedGames){
                 console.log(`Get List Of Featured Games: ${listOfFeaturedGames.gameList[0].gameId}`);
             }
+
+            /**
+            * League-v4 test.
+            */
+            const leagueEntry = await client.league.getLeagueEntryByPuuid(account.puuid);
+            console.log(`League entry: ${JSON.stringify(leagueEntry)}`);
         }
     }
 

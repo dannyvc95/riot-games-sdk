@@ -2,7 +2,7 @@
 import {RiotGamesApiClient} from '../client';
 import {PlatformDataDto} from '../types/PlatformDataDto';
 
-export class LOLStatus {
+export class LolStatus {
     constructor(private client: RiotGamesApiClient) {}
 
     /** /lol/status/v4/platform-data */
