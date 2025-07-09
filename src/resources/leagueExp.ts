@@ -9,10 +9,9 @@ export class LeagueExp {
     /** /lol/league-exp/v4/entries/{queue}/{tier}/{division} */
     async getAllLeagueEntries(queue: QueueType, tier: Tier, division: Division, page?: number) :
     Promise<Set<LeagueEntryDTO> | null> {
-        const uri = '/lol/league-exp/v4/entries/';
-        const pageParam = page ? `?page=${page}` : '';
         try {
-            return await this.client.get('la1',`${uri}${queue}/${tier}/${division}${pageParam}`);
+            return await this.client.get('la1',
+                `/lol/league-exp/v4/entries/${queue}/${tier}/${division}${page ? `?page=${page}` : ''}`);
         } catch (error) {
             console.error(error);
         }
