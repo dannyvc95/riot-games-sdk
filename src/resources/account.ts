@@ -9,7 +9,7 @@ export class Account {
     /** /riot/account/v1/accounts/by-puuid/{puuid} */
     async getAccountByPuuid(puuid: string): Promise<AccountDto | null> {
         try {
-            return await this.client.getFromRegion('americas', `/riot/account/v1/accounts/by-puuid/${puuid}`);
+            return await this.client.get('americas', `/riot/account/v1/accounts/by-puuid/${puuid}`);
         } catch (error) {
             console.error(error);
         }
@@ -19,7 +19,7 @@ export class Account {
     /** /riot/account/v1/accounts/by-riot-id/{gameName}/{tagLine} */
     async getAccountByRiotId(gameName: string, tagLine: string): Promise<AccountDto | null> {
         try {
-            return await this.client.getFromRegion(
+            return await this.client.get(
                 'americas', `/riot/account/v1/accounts/by-riot-id/${gameName}/${tagLine}`);
         } catch (error) {
             console.error(error);
@@ -31,7 +31,7 @@ export class Account {
     async getActiveRegionByPuuid(puuid: string): Promise<AccountRegionDto | null> {
         try {
             const game = 'lol';
-            return await this.client.getFromRegion(
+            return await this.client.get(
                 'americas', `/riot/account/v1/region/by-game/${game}/by-puuid/${puuid}`);
         } catch (error) {
             console.error(error);

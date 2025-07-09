@@ -8,7 +8,7 @@ export class ChampionRotation {
     /** /lol/platform/v3/champion-rotations */
     async getChampionRotations(): Promise<ChampionInfo | null> {
         try {
-            return await this.client.getFromRegion('la1','/lol/platform/v3/champion-rotations');
+            return await this.client.get('la1','/lol/platform/v3/champion-rotations');
         } catch (error) {
             console.error(error);
         }

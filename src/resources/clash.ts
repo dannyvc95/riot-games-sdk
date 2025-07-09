@@ -10,7 +10,7 @@ export class Clash {
     /** /lol/clash/v1/players/by-puuid/{puuid} */
     async getPlayersByPuuid(puuid: string): Promise<PlayerDto[] | null> {
         try {
-            return await this.client.getFromRegion('la1',`/lol/clash/v1/players/by-puuid/${puuid}`);
+            return await this.client.get('la1',`/lol/clash/v1/players/by-puuid/${puuid}`);
         } catch (error) {
             console.error(error);
         }
@@ -20,7 +20,7 @@ export class Clash {
     /** /lol/clash/v1/teams/{teamId} */
     async getTeamByID(teamId: string): Promise<TeamDto | null> {
         try {
-            return await this.client.getFromRegion('la1',`/lol/clash/v1/teams/${teamId}`);
+            return await this.client.get('la1',`/lol/clash/v1/teams/${teamId}`);
         } catch (error) {
             console.error(error);
         }
@@ -30,7 +30,7 @@ export class Clash {
     /** /lol/clash/v1/tournaments */
     async getAllActiveOrUpcomingTournaments(): Promise<TournamentDto[] | null> {
         try {
-            return await this.client.getFromRegion('la1','/lol/clash/v1/tournaments');
+            return await this.client.get('la1','/lol/clash/v1/tournaments');
         } catch (error) {
             console.error(error);
         }
@@ -41,7 +41,7 @@ export class Clash {
     /** /lol/clash/v1/tournaments/by-team/{teamId} */
     async getTournamentByTeamID(teamId: string): Promise<TournamentDto | null> {
         try {
-            return await this.client.getFromRegion('la1',`/lol/clash/v1/tournaments/by-team/${teamId}`);
+            return await this.client.get('la1',`/lol/clash/v1/tournaments/by-team/${teamId}`);
         } catch (error) {
             console.error(error);
         }
@@ -51,7 +51,7 @@ export class Clash {
     /** /lol/clash/v1/tournaments/{tournamentId} */
     async GetTournamentByID(tournamentId: string): Promise<TournamentDto | null> {
         try {
-            return await this.client.getFromRegion('la1',`/lol/clash/v1/tournaments/${tournamentId}`);
+            return await this.client.get('la1',`/lol/clash/v1/tournaments/${tournamentId}`);
         } catch (error) {
             console.error(error);
         }

@@ -7,7 +7,7 @@ import {ChampionMastery} from './resources/champioMastery';
 import {Clash} from './resources/clash';
 import {LeagueExp} from './resources/leagueExp';
 
-type RiotRegion = 'americas' | 'la1';
+type RiotGamesApi = 'americas' | 'la1';
 
 export class RiotGamesApiClient {
     public readonly account: Account;
@@ -18,7 +18,7 @@ export class RiotGamesApiClient {
 
     private readonly apiKey: string = process.env.RIOT_GAMES_API_KEY || '';
 
-    private readonly regionUrls: Record<RiotRegion, string> = {
+    private readonly apiHosts: Record<RiotGamesApi, string> = {
         americas: process.env.RIOT_GAMES_API_AMERICAS_HOST || '',
         la1: process.env.RIOT_GAMES_API_LA1_HOST || '',
     };
@@ -31,23 +31,11 @@ export class RiotGamesApiClient {
         this.leagueExp = new LeagueExp(this);
     }
 
-    /**
-    * Makes a typed HTTP GET request to the specified API path.
-    *
-    * @template T - The expected shape of the response data.
-    * @param path - The relative API path to request.
-    * @returns A promise that resolves to the parsed JSON response of type T.
-    * @throws If the response status is not OK.
-    */
-    async getFromRegion<T = unknown>(region: RiotRegion, path: string): Promise<T> {
-        const baseUrl = this.regionUrls[region];
-        const response = await fetch(`${baseUrl}${path}`, {
-            headers: {'X-Riot-Token': this.apiKey},
-        });
+    async get<T = unknown>(api: RiotGamesApi, path: string): Promise<T> {
+        const response = await fetch(`${this.apiHosts[api]}${path}`, {headers: {'X-Riot-Token': this.apiKey}});
         if (!response.ok) {
             throw new Error(`Request failed: ${response.status}`);
         }
         return response.json();
     }
-
 }
