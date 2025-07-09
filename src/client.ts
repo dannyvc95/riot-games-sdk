@@ -5,6 +5,7 @@ import {Account} from './resources/account';
 import {ChampionRotation} from './resources/championRotation';
 import {ChampionMastery} from './resources/champioMastery';
 import {Clash} from './resources/clash';
+import {LeagueExp} from './resources/leagueExp';
 
 type RiotRegion = 'americas' | 'la1';
 
@@ -13,6 +14,7 @@ export class RiotGamesApiClient {
     public readonly championRotation: ChampionRotation;
     public readonly championMastery: ChampionMastery;
     public readonly clash: Clash;
+    public readonly leagueExp: LeagueExp;
 
     private readonly apiKey: string = process.env.RIOT_GAMES_API_KEY || '';
 
@@ -26,6 +28,7 @@ export class RiotGamesApiClient {
         this.clash = new Clash(this);
         this.championMastery = new ChampionMastery(this);
         this.championRotation = new ChampionRotation(this);
+        this.leagueExp = new LeagueExp(this);
     }
 
     /**
