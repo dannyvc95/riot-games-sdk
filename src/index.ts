@@ -8,6 +8,7 @@ import {RiotGamesApiClient} from './client';
 
     const account = await client.account.getAccountByRiotId('NoxMajesty', 'LAN');
     const championRotation = await client.championRotation.getChampionRotations();
+    const leagues = await client.leagueExp.getAllLeagueEntries('RANKED_SOLO_5x5', 'CHALLENGER','I');
 
     if (account) {
         console.log(`riot id: ${gameName}#${tagLine}\npuuid: ${account.puuid}\n`);
@@ -26,5 +27,8 @@ import {RiotGamesApiClient} from './client';
         console.log(`Free Champion Rotations:\nmaxNewPlayerLevel: ${championRotation.maxNewPlayerLevel}`);
         console.log(`Free Champions for New Players(IDs): ${championRotation.freeChampionIdsForNewPlayers}`);
         console.log(`Free Champions(IDs): ${championRotation.freeChampionIds}`);
+    }
+    if (leagues) {
+        console.log(`Leagues:\nLeagueId: ${[...leagues][0].leagueId}`);
     }
 })();
