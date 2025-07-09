@@ -25,3 +25,25 @@ export type PublishLocations = 'RIOTCLIENT' | 'RIOTSTATUS' | 'GAME';
 export type IncidentSeverity = 'INFO' | 'WARNING' | 'CRITICAL';
 
 export type MaintenanceStatus = 'SCHEDULED' | 'INPROGRESS' | 'COMPLETE';
+
+export type State =
+  | 'DISABLED'  /** Not visible and not calculated */
+  | 'HIDDEN'    /** Not visible, but calculated */
+  | 'ENABLED'   /** Visible and calculated */
+  | 'ARCHIVED'; /** Visible, but not calculated */
+
+export type Tracking =
+  | 'LIFETIME' /** Stats are incremented without reset */
+  | 'SEASON';  /** Stats are accumulated by season and reset at the beginning of new season */
+
+export type Level =
+  | 'NONE'
+  | 'IRON'
+  | 'BRONZE'
+  | 'SILVER'
+  | 'GOLD'
+  | 'PLATINUM'
+  | 'DIAMOND'
+  | 'MASTER'
+  | 'GRANDMASTER'
+  | 'CHALLENGER';

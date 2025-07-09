@@ -9,6 +9,7 @@ import {LeagueExp} from './resources/leagueExp';
 import {LolStatus} from './resources/lolStatus';
 import {Spectator} from './resources/spectator';
 import {League} from './resources/league';
+import {LolChallenges} from './resources/lolChallenges';
 
 type RiotGamesApi = 'americas' | 'la1';
 
@@ -18,6 +19,7 @@ export class RiotGamesApiClient {
     public readonly championMastery: ChampionMastery;
     public readonly clash: Clash;
     public readonly leagueExp: LeagueExp;
+    public readonly lolChallenges: LolChallenges;
     public readonly lolStatus: LolStatus;
     public readonly spectator: Spectator;
     public readonly league: League;
@@ -36,6 +38,7 @@ export class RiotGamesApiClient {
         this.championRotation = new ChampionRotation(this);
         this.leagueExp = new LeagueExp(this);
         this.lolStatus = new LolStatus(this);
+        this.lolChallenges = new LolChallenges(this);
         this.spectator = new Spectator(this);
         this.league = new League(this);
     }
