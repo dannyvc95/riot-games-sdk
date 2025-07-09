@@ -39,10 +39,6 @@ export class RiotGamesApiClient {
     */
     async getFromRegion<T = unknown>(region: RiotRegion, path: string): Promise<T> {
         const baseUrl = this.regionUrls[region];
-
-        console.log('https://la1.api.riotgames.com/lol/league-exp/v4/entries/RANKED_SOLO_5x5/CHALLENGER/I?page=1');
-        console.log(`${baseUrl}${path}`);
-
         const response = await fetch(`${baseUrl}${path}`, {
             headers: {'X-Riot-Token': this.apiKey},
         });

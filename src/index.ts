@@ -8,7 +8,7 @@ import {RiotGamesApiClient} from './client';
 
     const account = await client.account.getAccountByRiotId('NoxMajesty', 'LAN');
     const championRotation = await client.championRotation.getChampionRotations();
-    const leagues = await client.leagueExp.getAllLeagueEntries('RANKED_SOLO_5x5', 'CHALLENGER','I');
+    const leagues = await client.leagueExp.getAllLeagueEntries('RANKED_SOLO_5x5', 'CHALLENGER','I',1);
 
     if (account) {
         console.log(`riot id: ${gameName}#${tagLine}\npuuid: ${account.puuid}\n`);
