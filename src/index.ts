@@ -10,6 +10,8 @@ import {RiotGamesApiClient} from './client';
     const championRotation = await client.championRotation.getChampionRotations();
     const leagues = await client.leagueExp.getAllLeagueEntries('RANKED_SOLO_5x5', 'CHALLENGER','I',1);
     const status = await client.lolStatus.getLOLStatus();
+    const challengesConfig = await client.lolChallenges.getChallengesConfigs();
+    const challengesPercentiles = await client.lolChallenges.getChallengesPercentiles();
 
     if (account) {
         console.log(`riot id: ${gameName}#${tagLine}\npuuid: ${account.puuid}\n`);
@@ -53,6 +55,9 @@ import {RiotGamesApiClient} from './client';
         }
     }
 
+    /**
+     * Champion-v3 test.
+     */
     if (championRotation) {
         console.log(`Free Champion Rotations:\nmaxNewPlayerLevel: ${championRotation.maxNewPlayerLevel}`);
         console.log(`Free Champions for New Players(IDs): ${championRotation.freeChampionIdsForNewPlayers}`);
@@ -62,6 +67,9 @@ import {RiotGamesApiClient} from './client';
         console.log(`Leagues:\nLeagueId: ${[...leagues][0].leagueId}`);
     }
 
+    /**
+     * LOL-STATUS-v4 test.
+     */
     if(status) {
         console.log('LOL Platform Status:');
         console.log(`ID: ${status.id}`);
@@ -70,4 +78,16 @@ import {RiotGamesApiClient} from './client';
         console.log(`Maintenances: ${status.maintenances}`);
         console.log(`Incidents: ${status.incidents}`);
     }
+
+    /**
+     * LOL-Challenges-v1 test.
+     */
+    if(challengesConfig) {
+        console.log(`Challenges Configurations first element: ${JSON.stringify(challengesConfig[0])}`);
+    }
+
+    if(challengesPercentiles) {
+        console.log(`Challenge Percentiles first element: ${JSON.stringify(challengesPercentiles[0])}`);
+    }
+
 })();
