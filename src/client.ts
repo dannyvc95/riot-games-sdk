@@ -7,6 +7,7 @@ import {ChampionMastery} from './resources/champioMastery';
 import {Clash} from './resources/clash';
 import {LeagueExp} from './resources/leagueExp';
 import {Spectator} from './resources/spectator';
+import {Match} from './resources/match';
 
 type RiotGamesApi = 'americas' | 'la1';
 
@@ -17,6 +18,7 @@ export class RiotGamesApiClient {
     public readonly clash: Clash;
     public readonly leagueExp: LeagueExp;
     public readonly spectator: Spectator;
+    public readonly match: Match;
 
     private readonly apiKey: string = process.env.RIOT_GAMES_API_KEY || '';
 
@@ -32,6 +34,7 @@ export class RiotGamesApiClient {
         this.championRotation = new ChampionRotation(this);
         this.leagueExp = new LeagueExp(this);
         this.spectator = new Spectator(this);
+        this.match = new Match(this);
     }
 
     async get<T = unknown>(api: RiotGamesApi, path: string): Promise<T> {

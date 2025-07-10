@@ -17,3 +17,5 @@ export type Tier =
   | 'CHALLENGER';
 
 export type Division = 'I' | 'II' | 'III' | 'IV';
+
+export type MatchType = 'ranked' | 'normal' | 'tourney' | 'tutorial';
