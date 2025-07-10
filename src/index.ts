@@ -46,7 +46,18 @@ import {RiotGamesApiClient} from './client';
             if(listOfFeaturedGames){
                 console.log(`Get List Of Featured Games: ${listOfFeaturedGames.gameList[0].gameId}`);
             }
-
+            const matchList = await client.match.getMatchListByPuuid(account.puuid, {type: 'ranked'});
+            if(matchList){
+                console.log(`Get Match List By Puuid: ${matchList[0]}`);
+                const match = await client.match.getMatchByMatchId(matchList[0]);
+                if(match){
+                    console.log(`Get Match List By Match ID: ${match.metadata.participants}`);
+                }
+                const timeLine = await client.match.getMatchTimelineByMatchId(matchList[0]);
+                if(timeLine){
+                    console.log(`Get A Match Timeline By Match ID: ${timeLine.info.endOfGameResult}`);
+                }
+            }
             /**
             * League-v4 test.
             */

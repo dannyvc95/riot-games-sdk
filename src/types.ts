@@ -18,6 +18,8 @@ export type Tier =
 
 export type Division = 'I' | 'II' | 'III' | 'IV';
 
+export type MatchType = 'ranked' | 'normal' | 'tourney' | 'tutorial';
+
 export type Platforms = 'WINDOWS' | 'MACOS' | 'ANDROID' | 'IOS' | 'PS4' | 'XBONE' | 'SWITCH';
 
 export type PublishLocations = 'RIOTCLIENT' | 'RIOTSTATUS' | 'GAME';

@@ -8,6 +8,7 @@ import {Clash} from './resources/clash';
 import {LeagueExp} from './resources/leagueExp';
 import {LolStatus} from './resources/lolStatus';
 import {Spectator} from './resources/spectator';
+import {Match} from './resources/match';
 import {League} from './resources/league';
 import {LolChallenges} from './resources/lolChallenges';
 
@@ -22,6 +23,7 @@ export class RiotGamesApiClient {
     public readonly lolChallenges: LolChallenges;
     public readonly lolStatus: LolStatus;
     public readonly spectator: Spectator;
+    public readonly match: Match;
     public readonly league: League;
 
     private readonly apiKey: string = process.env.RIOT_GAMES_API_KEY || '';
@@ -40,6 +42,7 @@ export class RiotGamesApiClient {
         this.lolStatus = new LolStatus(this);
         this.lolChallenges = new LolChallenges(this);
         this.spectator = new Spectator(this);
+        this.match = new Match(this);
         this.league = new League(this);
     }
 

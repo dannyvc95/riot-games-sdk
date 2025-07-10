@@ -49,7 +49,7 @@ export class Clash {
     }
 
     /** /lol/clash/v1/tournaments/{tournamentId} */
-    async GetTournamentByID(tournamentId: string): Promise<TournamentDto | null> {
+    async getTournamentByID(tournamentId: string): Promise<TournamentDto | null> {
         try {
             return await this.client.get('la1',`/lol/clash/v1/tournaments/${tournamentId}`);
         } catch (error) {
