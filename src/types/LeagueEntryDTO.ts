@@ -1,6 +1,7 @@
-import {MiniSeriesDTO} from './MiniSeriesDTO';
+import {Division, QueueType, Tier} from '../types';
+import {MiniSeriesDto} from './MiniSeriesDto';
 
-export interface LeagueEntryDTO {
+export interface LeagueEntryDto {
   /**
    * ID of the league the player belongs to.
    */
@@ -19,17 +20,17 @@ export interface LeagueEntryDTO {
   /**
    * Type of ranked queue.
    */
-  queueType: string;
+  queueType: QueueType;
 
   /**
    * Tier of the player (e.g., IRON, BRONZE, SILVER, etc.).
    */
-  tier: string;
+  tier: Tier;
 
   /**
    * Division within the tier (e.g., I, II, III, IV).
    */
-  rank: string;
+  rank: Division;
 
   /**
    * League Points (LP) the player has in this rank.
@@ -69,5 +70,5 @@ export interface LeagueEntryDTO {
   /**
    * Mini series data if the player is in promotion series.
    */
-  miniSeries?: MiniSeriesDTO;
+  miniSeries?: MiniSeriesDto;
 }

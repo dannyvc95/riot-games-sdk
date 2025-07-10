@@ -1,4 +1,4 @@
-import { TournamentPhaseDto } from "./TournamentPhaseDto";
+import {TournamentPhaseDto} from './TournamentPhaseDto';
 
 export interface TournamentDto {
   /**

@@ -1,4 +1,4 @@
-export interface MiniSeriesDTO {
+export interface MiniSeriesDto {
   /**
    * Number of losses in the mini series.
    */
